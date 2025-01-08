@@ -1,0 +1,42 @@
+<div class="table-container">
+    <h2>Applicants Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Id No.</th>
+          <th>Name</th>
+          <th>Email Id</th>
+          <th>Applied For</th>
+          <th>Profile</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(instructor of instructors; track instructor.id ){
+            <tr [ngClass]="{'shortlisted-row': instructor.status === 'Shortlisted'}">
+              <td>T{{instructor.id}}</td>
+              <td>{{instructor.fullName}}</td>
+              <td>{{instructor.email}}</td>
+              <td>{{instructor.teachingDomain}}</td>
+              <td><span
+                class="profile-icon"
+              >
+                📄
+              </span></td>
+              <td >
+                @if (instructor.status) {}
+                <div class="dropdown">
+                  <button class="action-button">Shortlisted</button>
+                  <div class="dropdown-content">
+                    <a (click)="shortlistInstructor(instructor)">Shortlisted</a>
+                    <a href="#">Pending</a>
+                    <a (click)="rejectInstructor(instructor.id)">Rejected</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+

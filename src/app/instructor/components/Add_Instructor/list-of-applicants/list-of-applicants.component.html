@@ -1,0 +1,60 @@
+<div class="containers">
+  <h2>Available Instructors</h2>
+
+  <!-- Show loader if data is still loading -->
+   @if(loading){
+     <div >Loading instructors...</div>
+   }
+
+  <!-- Display table if instructors are available -->
+  @if(!loading && instructors.length > 0){
+    <table  class="instructor-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Contact Number</th>
+          <th>Email</th>
+          <th>Experience (years)</th>
+          <th>Teaching Domain</th>
+          <th>Specialization</th>
+          <th>Degree</th>
+          <th>Certifications</th>
+          <th>Days Available</th>
+          <th>Hours Available</th>
+          <!-- <th>Resume</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        @for(instructor of instructors; track $index){
+          <tr>
+            <td>T{{ instructor.id }}</td>
+            <td>{{ instructor.fullName }}</td>
+            <td>{{ instructor.contactNumber }}</td>
+            <td>{{ instructor.email }}</td>
+            <td>{{ instructor.experience }}</td>
+            <td>{{ instructor.teachingDomain }}</td>
+            <td>{{ instructor.specialization }}</td>
+            <td>{{ instructor.degree }}</td>
+            <td>{{ instructor.certifications }}</td>
+            <td>{{ instructor.daysAvailable }}</td>
+            <td>{{ instructor.hoursAvailable }}</td>
+            <!-- <td>
+              <a href="{{ instructor.resume }}" target="_blank">View Resume</a>
+            </td> -->
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  <!-- No data message -->
+  @if(!loading && instructors.length === 0){
+    <div >
+      <p>No instructors available.</p>
+    </div>
+  }
+
+  <!-- Add Instructor Button -->
+  <button (click)="addInstructor()" class="add-button">Add Instructor</button>
+</div>

@@ -1,0 +1,50 @@
+<body>
+  <header class="header">
+    <div class="logo">SkillHive</div>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Enroll Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="welcome-section">
+      <h2>Hello, Candidate Name</h2>
+    </section>
+
+    <section class="card-container">
+      <div class="card">
+        <h3>📚 Enroll Course</h3>
+        <p>Join the course of your choice and enhance your skills.</p>
+        <button>Get Started</button>
+      </div>
+      <div class="card">
+        <h3>👤 Manage Profile</h3>
+        <p>Update your information and preferences.</p>
+        <button [routerLink]="['/update-profile']">Edit Profile</button>
+      </div>
+      <div class="card">
+        <h3>📈 Track Course</h3>
+        <p>Monitor your progress and stay on track.</p>
+        <button>View Progress</button>
+      </div>
+    </section>
+
+    <section class="upload-section">
+      <h2>Upload Files</h2>
+      <p>Upload your assignments or project files here.</p>
+      <form>
+        <label for="fileUpload">Choose a file</label>
+        <input type="file" id="fileUpload" (change)="onFileSelected($event)" />
+        <button type="button" (click)="onUpload()">Upload</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 SkillHive. All rights reserved.</p>
+  </footer>
+</body>

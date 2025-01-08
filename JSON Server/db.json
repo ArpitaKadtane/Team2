@@ -1,0 +1,541 @@
+{
+  "candidates": [
+      {
+        "id": "b5f2",
+        "fullName": "Bhanu Pratap Singh",
+        "email": "bhanusingh09@gmail.com",
+        "password": "BhanuPS09"
+      },
+      {
+        "id": "0fff",
+        "fullName": "Manoj",
+        "email": "manoj10@gmail.com",
+        "password": "Manoj10"
+      },
+      {
+        "id": "4457",
+        "fullName": "Akshari",
+        "email": "akshari10@gmail.com",
+        "password": "Akshari10"
+      },
+      {
+        "id": "1f51",
+        "fullName": "Aniketh",
+        "email": "aniketh10@gmail.com",
+        "password": "Aniketh10"
+      },
+    ],
+    "admins": [
+      {
+        "id": "864f",
+        "fullName": "Admin",
+        "email": "admin10@gmail.com",
+        "password": "Admin10"
+      }
+    ],
+    "instructors": [
+      {
+        "id": "4225",
+        "fullName": "Instructor1",
+        "email": "instructor01@gmail.com",
+        "password": "Instructor10"
+      },
+      {
+        "id": "6db2",
+        "fullName": "Instructor2",
+        "email": "instructor02@gmail.com",
+        "password": "Instructor10"
+      }
+    ],
+    "courses": [
+    {
+      "id": "5692",
+      "courseId": "1",
+      "name": "Angular Basics",
+      "startDate": "2024-12-21",
+      "endDate": "2024-12-28",
+      "technology": "TypeScript",
+      "status": "Upcoming",
+      "instructor": "Sandeep"
+    },
+    {
+      "id": "5693",
+      "courseId": "2",
+      "name": "React Basics",
+      "startDate": "2024-12-21",
+      "endDate": "2024-12-28",
+      "technology": "JavaScript",
+      "status": "Upcoming",
+      "instructor": "Rabin"
+    }
+  ],
+  "applicantDetails": [
+    {
+      "id": "703c",
+      "fullName": "karna",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 1,
+      "teachingDomain": "Mathematics",
+      "specialization": "Programming",
+      "degree": "dfa",
+      "certifications": "adsfadsf",
+      "daysAvailable": "",
+      "hoursAvailable": "",
+      "resume": null
+    },
+    {
+      "id": "e29d",
+      "fullName": "shyam",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 2,
+      "teachingDomain": "Computer Science",
+      "specialization": "Data Structures",
+      "degree": "M Tech - CSE",
+      "certifications": " SAP cloud computing",
+      "daysAvailable": "45",
+      "hoursAvailable": "1024",
+      "resume": null
+    },
+    {
+      "id": "ef31",
+      "fullName": "",
+      "contactNumber": "",
+      "email": "",
+      "experience": "",
+      "teachingDomain": "",
+      "specialization": "",
+      "degree": "",
+      "certifications": "",
+      "daysAvailable": "",
+      "hoursAvailable": "",
+      "resume": null
+    },
+    {
+      "id": "f9b2",
+      "fullName": "karna",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 1,
+      "teachingDomain": "Mathematics",
+      "specialization": "Programming",
+      "degree": "dfa",
+      "certifications": "adsfadsf",
+      "daysAvailable": "",
+      "hoursAvailable": "",
+      "resume": null
+    }
+  ],
+  "instructorDetails": [
+    {
+      "id": "703c",
+      "fullName": "karna",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 1,
+      "teachingDomain": "Mathematics",
+      "specialization": "Programming",
+      "degree": "dfa",
+      "certifications": "adsfadsf",
+      "daysAvailable": "",
+      "hoursAvailable": "",
+      "resume": null
+    },
+    {
+      "id": "2a4c",
+      "fullName": "ram",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 1,
+      "teachingDomain": "Mathematics",
+      "specialization": "Programming",
+      "degree": "bgfaedfa",
+      "certifications": "adsfadsf",
+      "daysAvailable": "45",
+      "hoursAvailable": "46",
+      "resume": "C:\\fakepath\\shekhar resume 2.0.pdf"
+    },
+    {
+      "id": "e29d",
+      "fullName": "shyam",
+      "contactNumber": "08868817364",
+      "email": "shekharjugtwan2002@gmail.com",
+      "experience": 2,
+      "teachingDomain": "Computer Science",
+      "specialization": "Data Structures",
+      "degree": "M Tech - CSE",
+      "certifications": " SAP cloud computing",
+      "daysAvailable": "45",
+      "hoursAvailable": "1024",
+      "resume": null
+    },
+    {
+      "id": "ef31",
+      "fullName": "",
+      "contactNumber": "",
+      "email": "",
+      "experience": "",
+      "teachingDomain": "",
+      "specialization": "",
+      "degree": "",
+      "certifications": "",
+      "daysAvailable": "",
+      "hoursAvailable": "",
+      "resume": null
+    }
+  ],
+"additionalDetails_Candidates": [
+    {
+      "id": "de7b",
+      "username": "khushi",
+      "email": "khushi@gmail.com",
+      "phoneNumber": "7058175881",
+      "location": "Solapur ",
+      "companyName": "walchand institute of technology",
+      "status": "Studying",
+      "specialization": "cse",
+      "gender": "Female",
+      "password": "khushi@123"
+    },
+    {
+      "id": "2948",
+      "username": "arpita",
+      "email": "arpita@gmail.com",
+      "phoneNumber": "1234567890",
+      "location": "Latur",
+      "specialization": "cse",
+      "companyName": "walchand institue of technology",
+      "gender": "Female",
+      "status": "Studying",
+      "password": "arpita@123"
+    },
+    {
+      "id": "4bc4",
+      "username": "ankita",
+      "email": "ankita@gmail.com",
+      "phoneNumber": "1234567891",
+      "location": "mumbai",
+      "specialization": "cse",
+      "companyName": "infosys",
+      "gender": "Female",
+      "status": "Working",
+      "password": "ankita@123"
+    },
+    {
+      "id": "0",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "phoneNumber": "1234567800",
+      "location": "Chennai",
+      "specialization": "IT",
+      "companyName": "TCE",
+      "gender": "Female",
+      "status": "Graduate",
+      "password": "Abc@123456"
+    }
+  ],  
+  {
+  "test_course": [
+    {
+      "title": "Introduction to BigData",
+      "createdAt": "10-12-24",
+      "instructorId": 123,
+      "courseId": 542,
+      "entrolledCandidates": [],
+      "assessment": [
+        {
+          "assessmentName": "new 3",
+          "questions": [
+            {
+              "question": "weq",
+              "choices": [
+                "weqw",
+                "eqwe",
+                "qweqw",
+                "weqwqwe"
+              ],
+              "answer": "weqw"
+            }
+          ],
+          "assessmentID": "bd9df788-97e1-42d3-b918-1aeba025179d",
+          "createdAt": "2024-12-22T10:42:52.370Z",
+          "schedule": {
+            "isScheduled": true,
+            "scheduledDetails": {
+              "assessmentDate": "2024-12-25",
+              "startTime": "09:02",
+              "endTime": "23:59"
+            }
+          },
+          "assessmentCompletions": [
+            {
+              "userId": 1231243,
+              "completionDate": "2024-12-25T17:39:19.158Z",
+              "assessmentData": {
+                "assessmentName": "new 3",
+                "createdAt": "2024-12-22T10:42:52.370Z",
+                "scheduledDetails": {
+                  "assessmentDate": "2024-12-25",
+                  "startTime": "09:02",
+                  "endTime": "23:59"
+                },
+                "totalQuestions": 1,
+                "questions": [
+                  {
+                    "question": "weq",
+                    "choices": [
+                      "weqw",
+                      "eqwe",
+                      "qweqw",
+                      "weqwqwe"
+                    ],
+                    "answer": "weqw",
+                    "userAnswer": "weqwqwe"
+                  }
+                ],
+                "startAt": "2024-12-25T17:39:09.086Z",
+                "completionAt": "2024-12-25T17:39:19.158Z"
+              }
+            }
+          ]
+        },
+        {
+          "assessmentName": "new 4",
+          "questions": [
+            {
+              "question": "q",
+              "choices": [
+                "ab",
+                "cc",
+                "f",
+                "t"
+              ],
+              "answer": "cc"
+            },
+            {
+              "question": "er",
+              "choices": [
+                "w",
+                "re",
+                "ee",
+                "r"
+              ],
+              "answer": "ee"
+            }
+          ],
+          "assessmentID": "14ceb3ec-b6fa-4120-bc80-6b872444af88",
+          "createdAt": "2024-12-24T12:47:04.983Z",
+          "schedule": {
+            "isScheduled": true,
+            "scheduledDetails": {
+              "assessmentDate": "2024-12-28",
+              "startTime": "09:21",
+              "endTime": "21:25"
+            }
+          },
+          "assessmentCompletions": []
+        },
+        {
+          "assessmentName": "new 5",
+          "questions": [
+            {
+              "question": "weer",
+              "choices": [
+                "ewrwer",
+                "wer",
+                "werwer",
+                "werwer"
+              ],
+              "answer": "werwer"
+            },
+            {
+              "question": "werwer",
+              "choices": [
+                "rwerrerwe",
+                "rwer",
+                "werwer",
+                "werwerwerwer"
+              ],
+              "answer": "werwerwerwer"
+            }
+          ],
+          "assessmentID": "9ff16807-7108-43b8-8b8d-4f86a7b39d4f",
+          "createdAt": "2024-12-24T15:49:58.070Z",
+          "schedule": {
+            "isScheduled": true,
+            "scheduledDetails": {
+              "assessmentDate": "2024-12-24",
+              "startTime": "22:14",
+              "endTime": "23:25"
+            }
+          },
+          "assessmentCompletions": []
+        }
+      ],
+      "id": "8cd5"
+    },
+    {
+      "title": "DevOps for Beginners",
+      "createdAt": "12-12-24",
+      "instructorId": 123,
+      "courseId": 543,
+      "assessment": [
+        {
+          "assessmentName": "assessment 1 in DevOps for Beginners",
+          "questions": [
+            {
+              "question": "wew ? ",
+              "choices": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "answer": "a"
+            }
+          ],
+          "assessmentID": "d473516c-1381-40cf-947d-8e510ad39395",
+          "createdAt": "2024-12-21T17:09:42.415Z",
+          "schedule": {
+            "isScheduled": true,
+            "scheduledDetails": {
+              "assessmentDate": "2024-12-24",
+              "startTime": "15:00",
+              "endTime": "16:00"
+            }
+          },
+          "assessmentCompletions": []
+        },
+        {
+          "assessmentName": "new 2 in dev",
+          "questions": [
+            {
+              "question": "werwer",
+              "choices": [
+                "werwer",
+                "werwe",
+                "rewr",
+                "werewrewr"
+              ],
+              "answer": "werewrewr"
+            },
+            {
+              "question": "werer",
+              "choices": [
+                "rwer",
+                "er",
+                "wer",
+                "rr"
+              ],
+              "answer": "rr"
+            }
+          ],
+          "assessmentID": "4376138a-47b8-4f43-930d-9d5b81086a06",
+          "createdAt": "2024-12-24T15:50:55.517Z",
+          "schedule": {
+            "isScheduled": true,
+            "scheduledDetails": {
+              "assessmentDate": "2024-12-26",
+              "startTime": "21:22",
+              "endTime": "21:26"
+            }
+          },
+          "assessmentCompletions": []
+        },
+        {
+          "assessmentName": "new 3 in dev",
+          "questions": [
+            {
+              "question": "wewe",
+              "choices": [
+                "r",
+                "t",
+                "y",
+                "u"
+              ],
+              "answer": "y"
+            }
+          ],
+          "assessmentID": "9d3e78f5-e806-4190-8a39-78ec715e7924",
+          "createdAt": "2024-12-24T15:51:10.312Z",
+          "schedule": {
+            "isScheduled": false,
+            "scheduledDetails": ""
+          },
+          "assessmentCompletions": []
+        }
+      ],
+      "id": "1099"
+    }
+  ],
+  "test_candidates": [
+    {
+      "name": "sihabutheen",
+      "userId": 1231243,
+      "entrolledCourses": [
+        {
+          "title": "Introduction to BigData",
+          "createdAt": "10-12-24",
+          "instructorId": 123,
+          "courseId": 542,
+          "entrolled": "12-12-24",
+          "assessmentData": [
+            {
+              "assessmentID": "bd9df788-97e1-42d3-b918-1aeba025179d",
+              "completionDate": "2024-12-25T17:39:19.158Z",
+              "assessmentData": {
+                "assessmentName": "new 3",
+                "createdAt": "2024-12-22T10:42:52.370Z",
+                "scheduledDetails": {
+                  "assessmentDate": "2024-12-25",
+                  "startTime": "09:02",
+                  "endTime": "23:59"
+                },
+                "totalQuestions": 1,
+                "questions": [
+                  {
+                    "question": "weq",
+                    "choices": [
+                      "weqw",
+                      "eqwe",
+                      "qweqw",
+                      "weqwqwe"
+                    ],
+                    "answer": "weqw",
+                    "userAnswer": "weqwqwe"
+                  }
+                ],
+                "startAt": "2024-12-25T17:39:09.086Z",
+                "completionAt": "2024-12-25T17:39:19.158Z"
+              }
+            }
+          ]
+        },
+        {
+          "title": "DevOps for Beginners",
+          "createdAt": "12-12-24",
+          "instructorId": 123542,
+          "entrolled": "12-12-24",
+          "courseId": 543
+        }
+      ],
+      "id": "e74c"
+    },
+    {
+      "name": "pratham",
+      "userId": 126446243,
+      "entrolledCourses": [
+        {
+          "title": "DevOps for Beginners",
+          "createdAt": "12-12-24",
+          "instructorId": 123542,
+          "entrolled": "25-12-24",
+          "courseId": 543
+        }
+      ],
+      "id": "6c62"
+    }
+  ]
+}
+ }

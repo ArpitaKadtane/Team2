@@ -1,0 +1,58 @@
+<body>
+  <div class="update-profile">
+  <h2>Update Profile</h2>
+  <div *ngIf="candidate">
+    <h2>Update Profile for {{ candidate.username }}</h2>
+    <form (ngSubmit)="onUpdate()">
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+      
+      <label for="username">Username</label>
+      <input id="username" [(ngModel)]="candidate.username" name="username" required readonly />
+      
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="candidate.email" name="email" required />
+      
+      <label for="phoneNumber">Phone Number</label>
+      <input id="phoneNumber" [(ngModel)]="candidate.phoneNumber" name="phoneNumber" required />
+      
+      <label for="location">Location</label>
+      <input id="location" [(ngModel)]="candidate.location" name="location" required />
+      
+      <label for="specialization">Specialization</label>
+      <input id="specialization" [(ngModel)]="candidate.specialization" name="specialization" required />
+      
+      <label for="companyName">Company/College Name</label>
+      <input id="companyName" [(ngModel)]="candidate.companyName" name="companyName" required />
+      
+      <label for="gender">Gender</label>
+      <select id="gender" [(ngModel)]="candidate.gender" name="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="status">Status</label>
+      <select id="status" [(ngModel)]="candidate.status" name="status" required>
+        <option value="" disabled selected>Select your status</option>
+        <option value="Graduate">Graduate</option>
+        <option value="Working">Working</option>
+        <option value="Studying">Studying</option>
+      </select>
+      
+      <button type="submit" class="btn-btn-primary">Update Profile</button>
+      <button type="button" (click)="navigateToChangePassword()" class="btn-btn-primary">Change Password</button>
+
+    </form>
+  </div>
+  
+  <div *ngIf="!candidate">
+    <p>Loading...</p>
+  </div>
+  
+  <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+  </div>
+</body>
+

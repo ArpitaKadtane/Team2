@@ -1,0 +1,15 @@
+.header {
+  padding: 5px 15px;
+  border: thin solid #dccfcf;
+  height: 55px;
+  background-color: #70b6f1;
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .applyInstructor {
+    border: 1px solid #d1d5db;
+    height: 30px;
+  }
+}
