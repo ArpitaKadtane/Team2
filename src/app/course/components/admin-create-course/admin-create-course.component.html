@@ -1,0 +1,80 @@
+<h1>Create Course</h1>
+<form (ngSubmit)="onSubmit()" #courseForm="ngForm" novalidate>
+  <label for="courseId">Course ID:</label>
+  <input 
+    id="courseId" 
+    [(ngModel)]="course.courseId" 
+    name="courseId" 
+    required 
+    #courseId="ngModel" />
+  <div *ngIf="courseId.invalid && courseId.touched" class="error">
+    Course ID is required.
+  </div>
+
+  <label for="name">Course Name:</label>
+  <input 
+    id="name" 
+    [(ngModel)]="course.name" 
+    name="name" 
+    required 
+    #name="ngModel" />
+  <div *ngIf="name.invalid && name.touched" class="error">
+    Course Name is required.
+  </div>
+
+  <label for="startDate">Start Date:</label>
+  <input 
+    type="date" 
+    id="startDate" 
+    [(ngModel)]="course.startDate" 
+    name="startDate" 
+    required 
+    #startDate="ngModel" 
+    (change)="updateStatus()"/>
+  <div *ngIf="startDate.invalid && startDate.touched" class="error">
+    Start Date is required.
+  </div>
+
+  <label for="endDate">End Date:</label>
+  <input 
+    type="date" 
+    id="endDate" 
+    [(ngModel)]="course.endDate" 
+    name="endDate" 
+    required 
+    #endDate="ngModel" 
+    (change)="updateStatus()"/>
+  <div *ngIf="endDate.invalid && endDate.touched" class="error">
+    End Date is required.
+  </div>
+
+  <label for="technology">Technology:</label>
+  <input 
+    id="technology" 
+    [(ngModel)]="course.technology" 
+    name="technology" 
+    required 
+    #technology="ngModel" />
+  <div *ngIf="technology.invalid && technology.touched" class="error">
+    Technology is required.
+  </div>
+
+  <label for="status">Status:</label>
+  <input 
+    id="status" 
+    [(ngModel)]="course.status" 
+    name="status" 
+    disabled />
+  <div class="info">
+    Status is auto-calculated based on dates.
+  </div>
+
+  <label for="instructor">Instructor (Optional):</label>
+  <input 
+    id="instructor" 
+    [(ngModel)]="course.instructor" 
+    name="instructor" 
+    placeholder="Assign later" />
+
+  <button type="submit" [disabled]="courseForm.invalid">Create Course</button>
+</form>

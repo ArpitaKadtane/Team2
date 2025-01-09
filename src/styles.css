@@ -1,0 +1,25 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Adjust content area to prevent overlap */
+  body {
+    padding-bottom: 3rem; /* Ensure content doesn't overlap with footer */
+  }
+  
