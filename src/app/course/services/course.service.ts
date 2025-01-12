@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -38,15 +37,37 @@ export class CourseService {
   }
 
   // Enroll a candidate in a course
-  enrollCandidate(courseId: number, candidate: any): Observable<any> {
-    return this.http.patch<any>(`${this.apiUrl}/${courseId}`, {
-      enrolledCandidates: candidate,
-    });
+  enrollCandidate(courseId: number, candidateId: string): Observable<any> {
+    return this.getCourseById(courseId).pipe(
+      map((course) => {
+        const updatedCandidates = [...(course.enrolledCandidates || []), candidateId];
+        return { ...course, enrolledCandidates: updatedCandidates };
+      }),
+      map((updatedCourse) => this.updateCourse(updatedCourse))
+    );
+  }
+
+  // Get all courses enrolled by a specific candidate
+  getEnrolledCourses(candidateId: string): Observable<any[]> {
+    return this.getCourses().pipe(
+      map((courses) =>
+        courses.filter((course) =>
+          course.enrolledCandidates?.includes(candidateId)
+        )
+      )
+    );
+  }
+
+  // Check if a candidate is enrolled in a course
+  isCandidateEnrolled(courseId: number, candidateId: string): Observable<boolean> {
+    return this.getCourseById(courseId).pipe(
+      map((course) => course.enrolledCandidates?.includes(candidateId) || false)
+    );
   }
 
   // Get the number of enrolled candidates for a course
-  getEnrolledCandidatesCount(courseId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${courseId}`).pipe(
+  getEnrolledCandidatesCount(courseId: number): Observable<number> {
+    return this.getCourseById(courseId).pipe(
       map((course) => course.enrolledCandidates?.length || 0)
     );
   }

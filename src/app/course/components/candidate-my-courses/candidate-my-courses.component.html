@@ -1,0 +1,28 @@
+<h2>My Courses</h2>
+
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<table *ngIf="enrolledCourses.length > 0; else noCourses">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Duration</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Instructor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of enrolledCourses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.startDate | date }} - {{ course.endDate | date }}</td>
+      <td>{{ course.startDate | date }}</td>
+      <td>{{ course.endDate | date }}</td>
+      <td>{{ course.instructor }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noCourses>
+  <p>You have not enrolled in any courses yet.</p>
+</ng-template>
