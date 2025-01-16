@@ -1,0 +1,87 @@
+<div class="view-all-courses">
+  <h2>All Courses</h2>
+  <div class="categories-scroll">
+    <button
+      *ngFor="let category of categories"
+      [class.active]="category === selectedCategory"
+      (click)="filterByCategory(category)"
+    >
+      {{ category }}
+    </button>
+  </div>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search courses..."
+      (input)="search()"
+    />
+  </div>
+
+  <div class="content">
+    <aside class="filters">
+      <div class="filter-top">
+        <h3 style="color: #333;">Filter</h3>
+        <img src="../../../../assets/icons/options-outline.svg" alt="Options Icon" />
+      </div>
+
+      <div class="filter">
+        <h4>Difficulty</h4>
+        <label>
+          <input type="checkbox" (change)="toggleDifficultyFilter('Beginner')" /> Beginner
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleDifficultyFilter('Intermediate')" /> Intermediate
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleDifficultyFilter('Advanced')" /> Advanced
+        </label>
+      </div>
+
+      <div class="filter">
+        <h4>Duration</h4>
+        <label>
+          <input type="checkbox" (change)="toggleDurationFilter('Less than 5 hours')" /> Less than 5 hours
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleDurationFilter('5 - 10 hours')" /> 5 - 10 hours
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleDurationFilter('10+ hours')" /> 10+ hours
+        </label>
+      </div>
+
+      <div class="filter">
+        <h4>Rating</h4>
+        <label>
+          <input type="checkbox" (change)="toggleRatingFilter('4.5 and above')" /> 4.5 and above
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleRatingFilter('4.0 - 4.5')" /> 4.0 - 4.5
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleRatingFilter('3.5 - 4.0')" /> 3.5 - 4.0
+        </label>
+        <label>
+          <input type="checkbox" (change)="toggleRatingFilter('Below 3.5')" /> Below 3.5
+        </label>
+      </div>
+    </aside>
+
+    <main class="courses">
+      <div class="course-card" *ngFor="let course of filteredCourses">
+        <img [src]="course.thumbnail" [alt]="course.title" />
+        <h3 title="{{ course.name }}">
+          {{ course.name.length > 30 ? (course.name | slice: 0:27) + '...' : course.name }}
+        </h3>
+        <p class="description">
+          {{ course.description }}
+        </p>
+        <p><strong>Instructor:</strong> {{ course.instructor || 'Not assigned' }}</p>
+        <p><strong>Duration:</strong> {{ course.duration || 'Not available' }}</p>
+        <button (click)="enroll(course)">Enroll Now</button>
+      </div>
+    </main>
+  </div>
+</div>

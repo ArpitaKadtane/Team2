@@ -1,0 +1,102 @@
+
+<div class="container">
+  <!-- Left Side -->
+  <div class="left-side">
+    <div class="left-content">
+      <img src="assets\img2.jpg" alt="Learning Image" class="learning-image" />
+      <h1>Start Learning Today!</h1>
+      <p>Register here to explore a variety of courses designed for you.</p>
+    </div>
+    <div class="extras">
+      <h3>Why Join Us?</h3>
+      <ul>
+        <li> Access to 1000+ free courses</li>
+        <li> Personalized learning experience</li>
+        <li> 24/7 support from mentors</li>
+      </ul>
+    </div>
+    <blockquote>
+      <p>“People expect to be bored by eLearning—let’s show them it doesn’t have to be like that!” - Cammy Bean</p>
+    </blockquote>
+  </div>
+
+  <div class="right-side">
+    <div class="registration-form">
+      <h2>Additional Details</h2>
+
+      <!-- This card will show when additional details are already submitted -->
+      <div *ngIf="!showForm" class="alert alert-info">
+        <p>{{ alreadySubmittedMessage }}</p>
+        <!-- Button to navigate to Edit Profile page -->
+        <button [routerLink]="['/candidate/update-profile']" class="btn btn-warning">Edit Profile</button>
+      </div>
+
+      <!-- Form for submitting details -->
+      <form *ngIf="showForm" (ngSubmit)="onSubmit()">
+        <!-- Profile Picture Upload -->
+        <div>
+          <label for="profilePicture">Profile Picture</label>
+          <input type="file" id="profilePicture" name="profilePicture" (change)="onFileSelected($event)" accept="image/*" />
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" [(ngModel)]="additionalDetails.phoneNumber" name="phoneNumber" required />
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label for="location">Location</label>
+          <input type="text" id="location" [(ngModel)]="additionalDetails.location" name="location" required />
+        </div>
+
+        <!-- Specialization -->
+        <div>
+          <label for="specialization">Specialization</label>
+          <input type="text" id="specialization" [(ngModel)]="additionalDetails.specialization" name="specialization" required />
+        </div>
+
+        <!-- Company Name -->
+        <div>
+          <label for="companyName">Company/College Name</label>
+          <input type="text" id="companyName" [(ngModel)]="additionalDetails.companyName" name="companyName" required />
+        </div>
+
+        <!-- Gender -->
+        <div>
+          <label for="gender">Gender</label>
+          <select id="gender" [(ngModel)]="additionalDetails.gender" name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Status -->
+        <div>
+          <label for="status">Status</label>
+          <select id="status" [(ngModel)]="additionalDetails.status" name="status" required>
+            <option value="" disabled selected>Select your status</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Working">Working</option>
+            <option value="Studying">Studying</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" [disabled]="errorMessage">Submit</button>
+      </form>
+
+      <!-- Link to Login page -->
+      <p *ngIf="showForm">
+        Already have an account? <a routerLink="/login">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <app-footer></app-footer>
+</section>

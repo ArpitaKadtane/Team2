@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'candidate-view-courses',
@@ -15,7 +14,7 @@ export class CandidateViewCoursesComponent implements OnInit {
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private courseService: CourseService, private router: Router) {}
+  constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
     this.fetchCourses();
@@ -49,10 +48,9 @@ export class CandidateViewCoursesComponent implements OnInit {
 
     this.courseService.updateCourse(updatedCourse).subscribe(
       () => {
-        course.enrolledCandidates.push('AnonymousUser');
+        course.enrolledCandidates.push('AnonymousUser'); // Reflect changes locally
         this.successMessage = 'Successfully enrolled in the course.';
         this.errorMessage = '';
-        setTimeout(() => this.router.navigate(['/candidate-my-courses']), 1500);
       },
       () => {
         this.successMessage = '';
