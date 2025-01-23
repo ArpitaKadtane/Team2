@@ -4,7 +4,7 @@ import { CandidateService } from '../../services/candidate.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component'; // Import HeaderComponent
-import { FooterComponent } from '../footer/footer.component'; // Import HeaderComponent
+import { FooterComponent } from '../../../shared/footer/footer.component'; // Import HeaderComponent
 @Component({
   standalone: true,
   selector: 'app-change-password',

@@ -48,7 +48,7 @@ export class CandidateViewCoursesComponent implements OnInit {
 
     this.courseService.updateCourse(updatedCourse).subscribe(
       () => {
-        course.enrolledCandidates.push('AnonymousUser'); // Reflect changes locally
+        course.enrolledCandidates.push('AnonymousUser'); // Mock User
         this.successMessage = 'Successfully enrolled in the course.';
         this.errorMessage = '';
       },

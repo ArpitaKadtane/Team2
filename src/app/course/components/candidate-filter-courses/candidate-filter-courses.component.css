@@ -1,0 +1,137 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f8f9fa; /* Light gray background for better contrast */
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Filters */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filter-container label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.filter-container input,
+.filter-container select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.filter-container input:focus,
+.filter-container select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Table Container */
+.table-container {
+  margin: 0 auto; /* Center the table */
+  width: 55%; /* Space: 30% left + 15% right */
+  overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* Table Styles */
+table {
+  width: 100%; /* Full width within the container */
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  text-align: center; /* Center align headers */
+  font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Status Coloring */
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.status.ongoing {
+  color: #28a745; /* Green */
+}
+
+.status.upcoming {
+  color: #ffc107; /* Yellow */
+}
+
+.status.past {
+  color: #dc3545; /* Red */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table-container {
+    width: 90%; /* Reduce container width for smaller screens */
+    padding: 8px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+    flex-direction: column; /* Stack filters vertically */
+    align-items: center;
+  }
+
+  .table-container {
+    width: 95%; /* More compact on very small screens */
+  }
+
+  table {
+    font-size: 12px;
+  }
+}

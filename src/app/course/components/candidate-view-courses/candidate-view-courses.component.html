@@ -20,7 +20,7 @@
     <p><strong>Enrolled Candidates:</strong> {{ course.enrolledCandidates?.length || 0 }}</p>
 
     <button (click)="enrollInCourse(course)" [disabled]="isEnrolled(course)">
-      {{ isEnrolled(course) ? 'Enrolled' : 'Enroll' }}
+      {{ isEnrolled(course) ? 'Already Enrolled' : 'Enroll' }}
     </button>
   </div>
 </div>

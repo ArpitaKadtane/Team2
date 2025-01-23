@@ -9,6 +9,7 @@
     max-width: 1200px; /* Limit the width for better readability */
     border: none; /* Removed the border */
     padding: 0.5rem 1rem; /* Reduced padding to prevent the header from taking too much space */
+    left: 0;
   }
   
   /* Heading Styling */

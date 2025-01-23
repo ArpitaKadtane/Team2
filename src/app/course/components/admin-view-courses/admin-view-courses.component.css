@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 /* Header Styling */
@@ -12,6 +13,7 @@ h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
+  
   animation: fadeSlideDown 1s ease-in-out;
 }
 
@@ -39,6 +41,7 @@ select {
   transition: box-shadow 0.3s ease-in-out;
   width: 100%;
   max-width: 300px;
+  
 }
 
 input:focus,
@@ -49,8 +52,10 @@ select:focus {
 
 /* Table Styling */
 table {
-  width: 90%;
-  margin: auto;
+  
+  margin-left: 15%;
+  width: 70%;
+  margin-right: 15%;
   border-collapse: collapse;
   border: 1px solid #ddd;
   animation: fadeIn 1.2s ease-in-out;

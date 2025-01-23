@@ -8,9 +8,32 @@
       "endDate": "2025-01-06",
       "technology": "JavaScript",
       "status": "Upcoming",
-      "instructor": "",
+      "instructor": "Sandeep",
       "enrolledCandidates": [
         "AnonymousUser"
+      ],
+      "modules": [
+        {
+          "id": "101",
+          "name": "Introduction to Angular",
+          "type": "video",
+          "contentUrl": "https://www.youtube.com/watch?v=bAyrObl7TYE",
+          "completed": false
+        },
+        {
+          "id": "102",
+          "name": "Components in Angular",
+          "type": "video",
+          "contentUrl": "https://uc1317b573fe545de3cb6605e721.dl.dropboxusercontent.com/cd/0/inline2/CiqtrWZR5U3Wwbhgp4UuK2WUetgw6wRoY6Oqaezw6lb4F2nXsIL-eE-PDsCRjuRvzkb3pbxfSsMmanvNnaAg54A9di-ldGEv8Z-uhozwfUfoM6Tu6cOiih7WXbK2KjPt-1ybZk8Rb2Ejz0JYYZAg_fmhBv0Eea2pK_CJRKfmLkm8ZcSkjxV_RdK_ghuD-dptnEAKpWy0N7sG5t4Bk6u6ocsngUGpnd1bJOgNOPjWmYbyrrw7xL_gXOJyjy7ovOHFyK7PBPjYVREGuQLlp7Ro7bV13DbnPIakwC46IW-Q4GWZ7CZXIaf3jaNFJw4EO4_MKksA8yoKqbauy5wPTNlUoKlcXUNcZXEtZFMG5NQLwS68RIK4XC8BWxLgORQ05YYRc04/file",
+          "completed": false
+        },
+        {
+          "id": "103",
+          "name": "Services in Angular",
+          "type": "video",
+          "contentUrl": "https://www.youtube.com/watch?v=bAyrObl7TYE",
+          "completed": false
+        }
       ]
     }
   ]

@@ -5,7 +5,7 @@ import { Candidate, AdditionalDetails } from '../../models/candidate.model';
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component'; 
-import { FooterComponent } from '../footer/footer.component'; 
+import { FooterComponent } from '../../../shared/footer/footer.component'; 
 
 @Component({
   selector: 'app-update-profile',

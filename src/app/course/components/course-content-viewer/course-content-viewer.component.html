@@ -1,0 +1,63 @@
+<div class="course-viewer">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Modules</h3>
+    <ul>
+      <li
+        *ngFor="let module of course?.modules; let i = index"
+        [class.active]="i === currentModuleIndex"
+        (click)="currentModuleIndex = i"
+      >
+        {{ module.name }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Content Section -->
+  <div class="content">
+    <h2>{{ course?.modules[currentModuleIndex]?.name }}</h2>
+
+    <!-- Show Video -->
+    <ng-container *ngIf="course?.modules[currentModuleIndex]?.type === 'video'">
+      <video controls [src]="course?.modules[currentModuleIndex]?.contentUrl"></video>
+    </ng-container>
+
+    <!-- Show PDF -->
+    <ng-container *ngIf="course?.modules[currentModuleIndex]?.type === 'pdf'">
+      <!-- Use iframe to display the PDF from Dropbox -->
+      <iframe
+        [src]="course?.modules[currentModuleIndex]?.contentUrl"
+        width="100%"
+        height="600px"
+        (load)="markAsCompleted()"
+      ></iframe> 
+      
+      <div *ngIf="course?.modules[currentModuleIndex]?.completed" class="completed-message">
+        <p>This module has been marked as completed.</p>
+      </div>
+    </ng-container>
+    <!-- Actions -->
+    <div class="actions">
+      <button (click)="previousModule()" [disabled]="currentModuleIndex === 0">
+        Previous
+      </button>
+      <button
+        (click)="markAsCompleted()"
+        [disabled]="course?.modules[currentModuleIndex]?.completed"
+      >
+        Mark as Completed
+      </button>
+      <button
+        (click)="nextModule()"
+        [disabled]="currentModuleIndex === course?.modules.length - 1"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress">
+      Progress: {{ progress }}%
+    </div>
+  </div>
+</div>

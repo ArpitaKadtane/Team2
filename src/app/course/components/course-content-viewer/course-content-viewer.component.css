@@ -1,0 +1,47 @@
+.course-viewer {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 20%;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.sidebar li.active {
+  font-weight: bold;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+iframe {
+  border: none;
+}
+
+.completed-message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.actions button {
+  margin: 10px;
+}
+
+.progress {
+  margin-top: 10px;
+}

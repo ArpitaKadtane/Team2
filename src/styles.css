@@ -1,25 +1,91 @@
 /* Global Styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Footer Styling */
-  footer {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: fixed; 
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  /* Adjust content area to prevent overlap */
-  body {
-    padding-bottom: 3rem; /* Ensure content doesn't overlap with footer */
-  }
-  
+  margin: 0;
+  padding: 0;
+}
+
+/* Universal Styling for Body */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1; /* Pushes footer to the bottom for short content */
+  padding: 1rem;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 10%;
+  position: fixed; /* Keeps the footer at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2%;
+  z-index: 1000;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure no content overlaps the footer */
+body {
+  padding-bottom: 4rem; /* Adjust based on footer height */
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffc107; /* Highlight on hover */
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Scrollbar Styling (Optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3;
+}

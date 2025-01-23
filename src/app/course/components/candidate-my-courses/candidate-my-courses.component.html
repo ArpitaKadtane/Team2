@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Course Name</th>
-      <th>Duration</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Instructor</th>
@@ -15,7 +14,6 @@
   <tbody>
     <tr *ngFor="let course of enrolledCourses">
       <td>{{ course.name }}</td>
-      <td>{{ course.startDate | date }} - {{ course.endDate | date }}</td>
       <td>{{ course.startDate | date }}</td>
       <td>{{ course.endDate | date }}</td>
       <td>{{ course.instructor }}</td>

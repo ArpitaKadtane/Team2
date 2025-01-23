@@ -1,73 +1,95 @@
-/* Container styling */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Title styling */
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  /* Error message styling */
-  .error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
+/* Container for spacing */
+.table-wrapper {
+  margin-left: 30%;
+  margin-right: 15%;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Error Styling */
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Table Styling */
+.table-container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 15%;
+  width: 70%;
+  margin-right: 15%;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.no-courses {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table-wrapper {
+    margin: 0 auto;
     padding: 10px;
-    margin-bottom: 15px;
-    text-align: center;
   }
-  
-  /* Table styling */
-  table {
+
+  .table-container {
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
   }
-  
-  /* Table header */
-  thead {
-    background-color: #007bff;
-    color: #fff;
+}
+
+@media (max-width: 480px) {
+  .table-wrapper {
+    margin: 0 auto;
+    padding: 5px;
   }
-  
-  th {
-    text-align: left;
-    padding: 12px;
-    font-size: 16px;
+
+  table {
+    font-size: 12px;
   }
-  
-  /* Table body */
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-  }
-  
-  /* No courses message */
-  p {
-    text-align: center;
-    color: #555;
-    font-size: 16px;
-    margin: 20px 0;
-  }
-  
+}
