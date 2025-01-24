@@ -3,6 +3,7 @@
   width: 250px;
   background-color: #f4f4f4;
   height: 100vh;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   padding-top: 115px;
@@ -79,4 +80,10 @@
   height: 30px;
   filter: invert(1);
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .side-menu{
+    padding-top: 70px;
+  }
 }

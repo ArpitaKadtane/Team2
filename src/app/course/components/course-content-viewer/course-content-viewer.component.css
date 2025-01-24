@@ -1,8 +1,15 @@
 .course-viewer {
   display: flex;
   padding: 20px;
+  margin-top: 8%;
+  padding-left: 40%;
+  margin-bottom: 10%;
 }
+video {
+  width: 80%;
+  height: auto;
 
+}
 .sidebar {
   width: 20%;
   padding: 10px;
@@ -30,6 +37,7 @@
 
 iframe {
   border: none;
+  
 }
 
 .completed-message {

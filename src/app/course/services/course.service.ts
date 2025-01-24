@@ -7,7 +7,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CourseService {
-  private apiUrl = 'http://localhost:3000/courses'; // JSON-server API endpoint
+  private apiUrl = 'http://localhost:3000/courses'; // API endpoint
 
   constructor(private http: HttpClient) {}
 

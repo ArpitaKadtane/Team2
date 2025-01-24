@@ -1,14 +1,22 @@
 <header>
-  <h1>SkillHive</h1>
-  <nav>
-    <a href="course/admin-create-course">Create Course</a>
-    <a href="course/admin-view-courses">View Course</a>
-    <a href="course/candidate-view">Enroll Now</a>
-    <a href="course/candidate-my-courses">My Courses</a>
-    <a href="course/instructor-view-courses">Instructor View</a>
-    <a href="course/candidate-filter-courses">Candidate Filter Courses</a>
-    <a href="course/course-content-viewer/5a20">Course View</a>
-  </nav>
+  <div class="left">
+  <img (click)="toggleSideMenu()" [src]="isMenuOpen ? 'S:\\Temp\\AnularPro\\InfosysInternProject\\SkillHive Learning Nexus- Transforming Skills Into Mastery\\assets\\icons\\close-outline.svg' : 'S:\\Temp\\AnularPro\\InfosysInternProject\\SkillHive Learning Nexus- Transforming Skills Into Mastery\\assets\\icons\\menu-outline.svg'" alt="">
+  <div class="logo">
+    <h1>Skillhive <span style="color: #ff532f;">Nexus</span></h1>
+  </div>
+  </div>
+  
+    <nav>
+      <ul class="nav-links">
+        <li><a routerLink="/home">Help</a></li>
+        <li><a routerLink="/courses">About</a></li>
+        <li><a routerLink="/assessment">Support</a></li>
+        <li><a routerLink="/feedback">Contact Us</a></li>
+        <li><a routerLink="/profile">FAQs</a></li>
+      </ul>
+      <div class="header-right-botm">
+        <input type="text" placeholder="Search here...">
+      </div>
+    </nav>
 </header>
-
   

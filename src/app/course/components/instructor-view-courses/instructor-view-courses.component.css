@@ -1,15 +1,16 @@
 h2 {
     text-align: center;
+    margin-top: 12%;
     margin-bottom: 20px;
     color: #000000;
   }
   
   table {
     border-collapse: collapse;
-    margin: 20px auto;
-    margin-left: 15%;
-    width: 70%;
-    margin-right: 15%;
+    margin-left: 25%;
+    margin-bottom: 30%;
+    width: 60%;
+    padding-right: 20%;
   }
   
   table th, table td {

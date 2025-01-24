@@ -1,84 +1,162 @@
-  /* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  padding: 20px 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+header .left {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo img {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  color: #ff532f;
+}
+
+nav .header-right-botm {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+nav .header-right-botm input {
+  background-color: #f5f5f5;
+  width: 250px;
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #ff532f;
+  margin-right: 20px;
+}
+
+nav .header-right-botm img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
   header {
-    background-color: #007bff; /* Modern blue shade */
-    color: white;
-    text-align: center;
-    border-radius: 10px; /* Rounded corners for the header */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 1rem auto; /* Reduced margin to give more space for content */
-    max-width: 1200px; /* Limit the width for better readability */
-    border: none; /* Removed the border */
-    padding: 0.5rem 1rem; /* Reduced padding to prevent the header from taking too much space */
-    left: 0;
+    padding: 15px 20px;
   }
-  
-  /* Heading Styling */
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+
+  nav ul li a {
+    font-size: 14px;
   }
-  
-  /* Navigation Styling */
-  nav {
-    margin-top: 0.3rem;
+
+  nav .header-right-botm input {
+    width: 200px;
   }
-  
-  nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s, background-color 0.3s;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
-  nav a:hover {
-    background-color: #099910; /* Darker green on hover */
-    color: white;
+
+  nav ul li {
+    margin-right: 10px;
   }
-  
-  /* Responsive Design for Tablets and Smaller Devices */
-  @media (max-width: 768px) {
-    header {
-      text-align: left;
-      padding: 1rem;
-      margin: 1rem; /* Reduced margin for responsiveness */
-    }
-  
-    header h1 {
-      font-size: 2rem;
-    }
-  
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  
-    nav a {
-      margin: 0.5rem 0.5rem;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-    }
+
+  nav .header-right-botm input {
+    width: 150px;
   }
-  
-  /* Mobile Devices */
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 1.5rem;
-    }
-  
-    nav {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    nav a {
-      margin: 0.4rem 0;
-      padding: 0.3rem 0.6rem;
-    }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  nav{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  nav .header-right-botm {
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .header-right-botm input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  nav ul li a {
+    font-size: 12px;
+  }
+
+  nav .header-right-botm input {
+    width: 100%;
+  }
+}

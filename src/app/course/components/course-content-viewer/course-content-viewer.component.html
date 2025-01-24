@@ -24,7 +24,7 @@
 
     <!-- Show PDF -->
     <ng-container *ngIf="course?.modules[currentModuleIndex]?.type === 'pdf'">
-      <!-- Use iframe to display the PDF from Dropbox -->
+
       <iframe
         [src]="course?.modules[currentModuleIndex]?.contentUrl"
         width="100%"

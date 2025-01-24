@@ -24,13 +24,4 @@ export class SideMenuComponent {
     return this.router.url === route;
   }
  
-  logout(): void {
-    if (confirm('Are you sure to logout?')) {
-      localStorage.removeItem('candidateName');
-      localStorage.removeItem('candidateEmail');
-      localStorage.removeItem('otherUserData');
-      localStorage.removeItem('loggedIn');
-      this.router.navigate(['/login']);
-    }
-  }
 }
