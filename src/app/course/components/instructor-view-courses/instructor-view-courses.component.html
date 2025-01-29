@@ -17,7 +17,7 @@
         <td>{{ course.name }}</td>
         <td>{{ course.startDate | date }} - {{ course.endDate | date }}</td>
         <td>{{ getStatus(course) }}</td>
-        <td>{{ course.enrolledCandidates?.length || 0 }}</td>
+        <td>{{ course.enrolledCandidates?.length || 0 }}</td> 
       </tr>
     </tbody>
   </table>

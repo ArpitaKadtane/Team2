@@ -32,6 +32,7 @@
       <th>Technology</th>
       <th>Status</th>
       <th>Instructor</th>
+      <th>Enrolled Candidates</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -43,6 +44,7 @@
       <td>{{ course.technology }}</td>
       <td>{{ course.status }}</td>
       <td>{{ course.instructor }}</td>
+      <td>{{ course.enrolledCandidates?.length || 0 }}</td> 
       <td>
         <button (click)="editCourse(course)">Edit</button>
         <button (click)="confirmDelete(course)">Delete</button>

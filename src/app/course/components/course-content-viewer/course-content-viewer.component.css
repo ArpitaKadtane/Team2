@@ -11,6 +11,7 @@ video {
   width: 100%; /* Make video responsive */
   max-width: 100%; /* Prevent overflow */
   height: auto;
+  margin-bottom: 2%;
 }
 
 .sidebar {
@@ -95,4 +96,5 @@ iframe {
   margin-top: 10px;
   font-size: 1.1rem;
   font-weight: bold;
+  margin-bottom: 10%;
 }

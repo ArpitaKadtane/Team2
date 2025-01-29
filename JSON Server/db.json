@@ -13,8 +13,8 @@
         {
           "id": "101",
           "name": "Introduction to Angular",
-          "type": "video",
-          "contentUrl": "1.mp4",
+          "type": "pdf",
+          "contentUrl": "BDA.pdf",
           "completed": true
         },
         {
