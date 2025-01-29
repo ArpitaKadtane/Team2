@@ -3,20 +3,26 @@
   padding: 20px;
   margin-top: 8%;
   margin-bottom: 10%;
-  height: 100vh;
+  height: calc(100vh - 20px); /* Adjusted for better fit */
+  box-sizing: border-box;
 }
-video {
-  width: 80%;
-  height: auto;
 
+video {
+  width: 100%; /* Make video responsive */
+  max-width: 100%; /* Prevent overflow */
+  height: auto;
 }
 
 .sidebar {
   width: 250px;
-  margin-right: 50px;
+  margin-right: 20px; /* Adjusted margin */
   background-color: antiquewhite;
-  padding: 10px;
+  padding: 15px;
   border-right: 1px solid #ddd;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  height: calc(100vh - 40px); /* Full height */
+  position: sticky;
+  top: 10%; /* Keep it sticky */
 }
 
 .sidebar ul {
@@ -26,33 +32,67 @@ video {
 
 .sidebar li {
   cursor: pointer;
-  margin: 10px 0;
+  margin: 15px 0; /* Increased spacing */
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.sidebar li:hover {
+  background-color: #e7d1b5; /* Subtle hover effect */
+  transform: scale(1.05); /* Slight scale on hover */
 }
 
 .sidebar li.active {
   font-weight: bold;
+  background-color: #c0a17b; /* Active background */
 }
 
 .content {
   flex-grow: 1;
-  padding: 10px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for content */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 iframe {
-  border: none;
-  
+  width: 100%;
+  height: calc(100vh - 60px); /* Adjust height of iframe */
+  border-radius: 8px;
 }
 
 .completed-message {
   margin-top: 20px;
   color: green;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .actions button {
   margin: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.actions button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.actions button:hover:enabled {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .progress {
   margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
