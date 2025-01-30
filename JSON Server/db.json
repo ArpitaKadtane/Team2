@@ -36,5 +36,14 @@
         "AnonymousUser"
       ]
     }
+  ],
+  "feedback": [
+    {
+      "id": "6e0b",
+      "courseId": "5a20",
+      "courseRating": 5,
+      "instructorRating": 5,
+      "feedbackText": "Good"
+    }
   ]
 }

@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { CourseService } from '../../services/course.service';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-course-content-viewer',
   templateUrl: './course-content-viewer.component.html',
   styleUrls: ['./course-content-viewer.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
 })
 export class CourseContentViewerComponent implements OnInit {
   courseId: string = '';
@@ -18,6 +19,13 @@ export class CourseContentViewerComponent implements OnInit {
   progress: number = 0;
   safePdfUrl: SafeResourceUrl | null = null;
   safeVideoUrl: SafeResourceUrl | null = null;
+
+  // Feedback properties
+  showFeedbackForm: boolean = false;
+  feedbackSubmitted: boolean = false;
+  courseRating: number = 0;
+  instructorRating: number = 0;
+  feedbackText: string = '';
 
   constructor(
     private courseService: CourseService,
@@ -38,10 +46,17 @@ export class CourseContentViewerComponent implements OnInit {
     });
   }
 
+  selectModule(index: number): void {
+    this.currentModuleIndex = index;
+    this.updateContentUrls();
+  }
+
   nextModule(): void {
     if (this.currentModuleIndex < this.course.modules.length - 1) {
       this.currentModuleIndex++;
       this.updateContentUrls();
+    } else if (this.progress === 100) {
+      this.showFeedbackForm = true;
     }
   }
 
@@ -78,17 +93,46 @@ export class CourseContentViewerComponent implements OnInit {
       this.safePdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
         `assets/pdfs/${module.contentUrl}`
       );
-      this.safeVideoUrl = null; 
+      this.safeVideoUrl = null;
     } else if (module.type === 'video') {
-      this.safePdfUrl = null; 
+      this.safePdfUrl = null;
       this.safeVideoUrl = this.sanitizeVideoUrl(module.contentUrl);
     }
   }
 
   sanitizeVideoUrl(url: string): SafeResourceUrl {
-    if (url.includes('youtube.com') || url.includes('youtu.be')) { 
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
       return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
     return this.sanitizer.bypassSecurityTrustResourceUrl(`assets/videos/${url}`);
+  }
+
+  // ⭐ Star Rating Handling
+  setCourseRating(rating: number): void {
+    this.courseRating = rating;
+  }
+
+  setInstructorRating(rating: number): void {
+    this.instructorRating = rating;
+  }
+
+  // 📝 Submit Feedback
+  submitFeedback(): void {
+    const feedbackData = {
+      courseId: this.courseId,
+      courseRating: this.courseRating,
+      instructorRating: this.instructorRating,
+      feedbackText: this.feedbackText,
+    };
+
+    this.courseService.submitFeedback(feedbackData).subscribe(
+      () => {
+        this.feedbackSubmitted = true;
+        this.showFeedbackForm = false;
+      },
+      (error) => {
+        console.error('Error submitting feedback:', error);
+      }
+    );
   }
 }

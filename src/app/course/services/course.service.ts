@@ -104,7 +104,17 @@ deleteCourse(id: string | number): Observable<void> {
       catchError(this.handleError('updateCourseModules'))
     );
   }
-
+  
+  // Submit feedback for a course
+  submitFeedback(feedback: any): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/feedback', feedback).pipe(
+      catchError((error) => {
+        console.error('submitFeedback failed:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+  
   // Utility: Handle HTTP errors
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
