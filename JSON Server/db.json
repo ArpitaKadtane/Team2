@@ -14,7 +14,7 @@
           "id": "101",
           "name": "Introduction to Angular",
           "type": "pdf",
-          "contentUrl": "BDA.pdf",
+          "contentUrl": "https://res.cloudinary.com/skillhivec/image/upload/v1738239301/fbsayk6roemckg93rgfx.pdf",
           "completed": true
         },
         {
@@ -28,7 +28,7 @@
           "id": "103",
           "name": "Services in Angular",
           "type": "pdf",
-          "contentUrl": "BDA2.pdf",
+          "contentUrl": "BDA.pdf",
           "completed": true
         }
       ],

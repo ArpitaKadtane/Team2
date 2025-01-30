@@ -91,7 +91,7 @@ export class CourseContentViewerComponent implements OnInit {
 
     if (module.type === 'pdf') {
       this.safePdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        `assets/pdfs/${module.contentUrl}`
+        `${module.contentUrl}`
       );
       this.safeVideoUrl = null;
     } else if (module.type === 'video') {
