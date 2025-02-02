@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'course-management' title`, () => {
+  it(`should have the 'SKILLHIVE_TEAM4_INFOSYS' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('course-management');
+    expect(app.title).toEqual('SKILLHIVE_TEAM4_INFOSYS');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, course-management');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SKILLHIVE_TEAM4_INFOSYS');
   });
 });

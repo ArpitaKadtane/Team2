@@ -1,14 +1,18 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
-import { provideHttpClient } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { routes } from './app/app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
-bootstrapApplication(AppComponent, {
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { CandidateRegistrationComponent } from './app/candidates/components/candidate-registration/candidate-registration.component';
+bootstrapApplication(CandidateRegistrationComponent, {
   providers: [
     provideHttpClient(),
-    importProvidersFrom(RouterModule.forRoot(routes)), provideAnimationsAsync()
-  ]
-}).catch(err => console.error(err));
+    provideRouter(routes),
+  ],
+}).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(withFetch()),
+    provideRouter(routes),
+  ],
+}).catch((err) => console.error(err));

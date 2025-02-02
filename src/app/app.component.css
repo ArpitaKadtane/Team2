@@ -1,24 +1,12 @@
-.layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  /* Navbar styling */
+  .navbar {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Space out the items */
+    align-items: center; /* Vertically center the items */
+    padding: 10px 20px; /* Padding for the navbar */
   }
   
-  
-  .body {
-    display: flex;
-    flex: 1;
-  }
-  
-  .side-menu {
-    width: 250px;
-    background-color: #f8f9fa;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-  }
-  
-  .content {
-    flex: 1;
-    padding:15px 20px;
-    overflow-y: auto;
+  .navbar-title {
+    font-size: 24px;
+    font-weight: bold;
   }

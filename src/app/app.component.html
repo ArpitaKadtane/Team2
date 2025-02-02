@@ -1,14 +1,1 @@
-<div class="layout">
-    <app-header [isMenuOpen]="isMenuVisible" (menuToggle)="onMenuToggle()"></app-header>
-    
-  <div class="body">
-    <aside *ngIf="isMenuVisible" class="side-menu">
-      <app-side-menu [isVisible]="isMenuVisible"></app-side-menu>
-    </aside>
-
-    <main class="content">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-  <app-footer></app-footer>
-</div>
+<router-outlet></router-outlet>

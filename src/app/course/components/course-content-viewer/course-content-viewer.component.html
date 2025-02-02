@@ -53,38 +53,15 @@
       </button>
       <button (click)="nextModule()">Next</button>
     </div>
+  </div>
+</div>
 
-    <!-- Feedback Section -->
-    <div *ngIf="showFeedbackForm" class="feedback-container">
-      <h3>Provide Your Feedback</h3>
-
-      <label>Course Rating:</label>
-      <div class="star-rating">
-        <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-              (click)="setCourseRating(i + 1)"
-              [class.filled]="i < courseRating">
-          ★
-        </span>
-      </div>
-
-      <label>Instructor Rating:</label>
-      <div class="star-rating">
-        <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-              (click)="setInstructorRating(i + 1)"
-              [class.filled]="i < instructorRating">
-          ★
-        </span>
-      </div>
-
-      <textarea [(ngModel)]="feedbackText" placeholder="Your feedback..."></textarea>
-
-      <button (click)="submitFeedback()">Submit Feedback</button>
-    </div>
-
-    <!-- Feedback Success Message -->
-    <div *ngIf="feedbackSubmitted" class="feedback-success">
-      <p>Feedback submitted successfully! 🎉</p>
-      <p>Wait for the certificate to get generated...</p>
-    </div>
+<!-- Completion Popup -->
+<div *ngIf="showCompletionPopup" class="completion-popup">
+  <div class="popup-content">
+    <h3>🎉 Congratulations, you have completed the course successfully!</h3>
+    <p>Now you're eligible to take up the assessment.</p>
+    <button class="assessment-btn" (click)="navigateToAssessment()">Go to Assessment</button>
+    <button class="close-btn" (click)="closePopup()">Close</button>
   </div>
 </div>

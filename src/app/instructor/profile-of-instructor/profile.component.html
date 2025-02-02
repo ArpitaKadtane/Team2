@@ -1,0 +1,92 @@
+<div class="header_bar">
+  <img
+    id="instructor_profile"
+    src="assets/person1.jpeg"
+    alt="Profile picture of instructor"
+  />
+  <div class="course-info">
+    <p><strong>Instructor:</strong> {{ instructor.fullName }}</p>
+    <p><strong>Teaching Domain:</strong> {{ instructor.teachingDomain }}</p>
+  </div>
+</div>
+
+<div class="about-heading">
+  <h2>About</h2>
+</div>
+
+<div class="main-content">
+  <div class="about-section">
+    <p>
+      Hi, I’m {{ instructor.fullName }}, a
+      {{ instructor.teachingDomain }} expert with a deep passion for unlocking
+      the power of data. Over the past decade, I’ve had the privilege of working
+      in both academia and the tech industry, helping businesses and individuals
+      make data-driven decisions that drive success.
+    </p>
+    <p>
+      I hold a Ph.D. in Data Science from TechnoGlobal University (2021), an
+      M.S. in Data Science from DataTech University (2017), and a B.Tech in
+      Computer Engineering from Innovatech Institute of Technology (2015).
+    </p>
+    <p>
+      My expertise spans Big Data Architecture, Data Visualization, Machine
+      Learning, and Cloud Computing. I specialize in tools such as Hadoop,
+      Apache Spark, Tableau, and Google Cloud, among others.
+    </p>
+    <p>
+      My teaching style blends theory with hands-on learning. I believe that the
+      best way to learn is by doing, so I incorporate real-world examples, case
+      studies, and interactive sessions into my courses.
+    </p>
+    <p>
+      When I’m not teaching, you’ll find me exploring innovative technologies,
+      contributing to open-source initiatives, or mentoring aspiring data
+      professionals.
+    </p>
+  </div>
+
+  <div class="stats-section">
+    <div class="stat-box">
+      <h3>Total Courses</h3>
+      <p>30</p>
+    </div>
+    <div class="stat-box">
+      <h3>Ratings</h3>
+      <p>⭐ 4.9</p>
+    </div>
+    <div class="stat-box">
+      <h3>Experience</h3>
+      <p>10 Years</p>
+    </div>
+    <div class="stat-box">
+      <h3>Graduated</h3>
+      <p>Yes</p>
+    </div>
+    <div class="stat-box">
+      <h3>Languages</h3>
+      <p>English, French</p>
+    </div>
+    <div class="stat-box">
+      <h3>Socials</h3>
+      <p>
+        <a href="mailto:example@example.com" target="_blank">
+          <img
+            src="assets/gmail.png"
+            alt="Mail"
+            style="width: 20px; height: 20px"
+          />
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <img
+            src="assets/linkedin.png"
+            alt="LinkedIn"
+            style="width: 20px; height: 20px"
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

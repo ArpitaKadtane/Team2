@@ -1,0 +1,95 @@
+.container-instructor-form {
+  font-family: Arial, sans-serif;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #333; /* Neutral text color for readability */
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #4a4a4a; /* Slightly darker for headings */
+}
+
+p {
+  margin-bottom: 20px;
+  color: #555; /* Lighter gray for paragraph text */
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+  gap: 20px;
+  padding: 20px;
+  border: none;
+  background-color: #f9f9f9; /* Light background for form section */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500; /* Slightly bold for better label visibility */
+  font-size: 14px;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  width: 94%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray border for input fields */
+  border-radius: 5px;
+  background-color: #fff; /* White background for inputs */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4a90e2; /* Blue highlight on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Subtle glow for focus */
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Add spacing between buttons */
+  grid-column: span 2; /* Ensures buttons span the entire form width */
+}
+
+button.cancel-btn {
+  width: 25%;
+  padding: 6px;
+  background: #f06292; /* Soft pink for cancel button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button.cancel-btn:hover {
+  background: #ec407a; /* Slightly darker pink on hover */
+}
+
+button.submit-btn {
+  width: 25%;
+  padding: 6px;
+  background: #4caf50; /* Green for submit button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+  background: #388e3c; /* Darker green on hover */
+}

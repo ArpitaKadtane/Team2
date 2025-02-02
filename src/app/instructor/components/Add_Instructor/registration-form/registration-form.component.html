@@ -1,0 +1,88 @@
+<!-- <app-navigation></app-navigation> -->
+<app-befor-apply-banner></app-befor-apply-banner>
+<div class="container-instructor-form">
+
+    <h2>Apply As Instructor</h2>
+    <p>Are you passionate about teaching and eager to inspire others? Join our team of dedicated instructors and make a difference! We’re looking for professionals who are skilled, motivated, and ready to share their knowledge with a diverse group of learners.
+      Whether you’re an expert in technology, arts, sciences, or any other field, this is your chance to empower others and grow your career in a supportive and dynamic environment. Apply today and start your journey as an impactful educator!</p>
+  
+    <form [formGroup]="instructorForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="full-name">Full Name</label>
+        <input id="full-name" formControlName="fullName" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-number">Contact Number</label>
+        <input id="contact-number" formControlName="contactNumber" placeholder="Enter your contact number" required>
+      </div>
+  
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter your email" required>
+      </div>
+  
+
+      <div class="form-group">
+        <label for="experience">Years of Experience</label>
+        <input id="experience" type="number" formControlName="experience" placeholder="Enter your experience in years" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="teaching-domain">Preferred Teaching Domain</label>
+        <select id="teaching-domain" formControlName="teachingDomain" required>
+          <option value="">Select domain</option>
+          <option value="Web Development">Web Development</option>
+          <option value="AI ML">AI ML</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="DevOps">DevOps</option>
+        </select>
+      </div>
+     
+      <div class="form-group">
+        <label for="specialization">Specialization</label>
+        <select id="specialization" formControlName="specialization" required>
+          <option value="">Select specialization</option>
+          <option value="Algebra">Algebra</option>
+          <option value="Programming">Programming</option>
+          <option value="Data Structures">Data Structures</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="degree">Highest Degree Earned</label>
+        <input id="degree" formControlName="degree" placeholder="Enter your highest degree" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="certifications">Relevant Certifications</label>
+        <input id="certifications" formControlName="certifications" placeholder="Enter your certifications">
+      </div>
+
+      <div class="form-group row">
+        <div>
+          <label for="days">Days Available</label>
+          <input id="days" formControlName="daysAvailable" placeholder="Enter days (e.g., Monday, Wednesday)">
+        </div>
+    </div>
+
+
+
+      <div class="form-group row">
+        <div>
+          <label for="resume">Upload resume/CV</label>
+          <input type="file" accept=" .pdf, .doc, .docx" id="resume" formControlName="resume" placeholder="Enter hours (e.g., 9 AM - 12 PM)">
+        </div>
+      </div>
+
+      <div class="form-group button-group">
+        <button type="button" class="btn cancel-btn" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn submit-btn">Submit Your Application</button>
+      </div>
+      
+      
+    </form>
+  </div>
+  

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../../services/course.service';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -20,16 +20,13 @@ export class CourseContentViewerComponent implements OnInit {
   safePdfUrl: SafeResourceUrl | null = null;
   safeVideoUrl: SafeResourceUrl | null = null;
 
-  // Feedback properties
-  showFeedbackForm: boolean = false;
-  feedbackSubmitted: boolean = false;
-  courseRating: number = 0;
-  instructorRating: number = 0;
-  feedbackText: string = '';
+  // Popup message
+  showCompletionPopup: boolean = false;
 
   constructor(
     private courseService: CourseService,
     private route: ActivatedRoute,
+    private router: Router,
     private sanitizer: DomSanitizer
   ) {}
 
@@ -56,7 +53,7 @@ export class CourseContentViewerComponent implements OnInit {
       this.currentModuleIndex++;
       this.updateContentUrls();
     } else if (this.progress === 100) {
-      this.showFeedbackForm = true;
+      this.showCompletionPopup = true;
     }
   }
 
@@ -78,6 +75,10 @@ export class CourseContentViewerComponent implements OnInit {
       (module: any) => module.completed
     ).length;
     this.progress = (completedModules / this.course.modules.length) * 100;
+
+    if (this.progress === 100) {
+      this.showCompletionPopup = true;
+    }
   }
 
   saveProgress(): void {
@@ -107,32 +108,11 @@ export class CourseContentViewerComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`assets/videos/${url}`);
   }
 
-  // ⭐ Star Rating Handling
-  setCourseRating(rating: number): void {
-    this.courseRating = rating;
+  navigateToAssessment(): void {
+    this.router.navigate(['/assessmentdash']);
   }
 
-  setInstructorRating(rating: number): void {
-    this.instructorRating = rating;
-  }
-
-  // 📝 Submit Feedback
-  submitFeedback(): void {
-    const feedbackData = {
-      courseId: this.courseId,
-      courseRating: this.courseRating,
-      instructorRating: this.instructorRating,
-      feedbackText: this.feedbackText,
-    };
-
-    this.courseService.submitFeedback(feedbackData).subscribe(
-      () => {
-        this.feedbackSubmitted = true;
-        this.showFeedbackForm = false;
-      },
-      (error) => {
-        console.error('Error submitting feedback:', error);
-      }
-    );
+  closePopup(): void {
+    this.showCompletionPopup = false;
   }
 }
