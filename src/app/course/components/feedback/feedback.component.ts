@@ -49,8 +49,9 @@ export class FeedbackComponent implements OnInit {
     };
 
     this.http.post('http://localhost:3000/feedbacks', feedback).subscribe(() => {
-      alert('Feedback submitted successfully! You can now download your certificate.');
-      this.certificateGenerated = true; // Show the certificate link after feedback submission
+      alert('Feedback submitted successfully!');
+      // this.certificateGenerated = true; // Show the certificate link after feedback submission
+      window.history.back();
     });
   }
 

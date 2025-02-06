@@ -35,12 +35,20 @@
     </div>
     <div 
       class="menu-item" 
+      [routerLink]="['/candidate/assessmentdash']" 
+      [class.active]="isActive('/candidate/assessmentdash')"
+    >
+      <img src="../../assets/icons/reader-outline.svg" alt="">
+      <span>Assessments</span>
+    </div>
+    <!-- <div 
+      class="menu-item" 
       [routerLink]="['/candidate/upcoming-Assessments']" 
       [class.active]="isActive('/candidate/upcoming-Assessments')"
     >
       <img src="../../assets/icons/calendar-outline.svg" alt="">
       <span>Upcoming Assessments</span>
-    </div>
+    </div> -->
     <!-- <div 
       class="menu-item" 
       [routerLink]="['/candidate/enrolled-courses']" 

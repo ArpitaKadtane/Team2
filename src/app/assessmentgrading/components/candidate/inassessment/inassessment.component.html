@@ -41,10 +41,10 @@
           >{{i+1}}</button>
         </div>
         <div 
-            class="w-full flex justify-center mt-3">
+            class="w-full flex justify-end mt-3">
             <button
             *ngIf="courseId && assessmentID && userId"
-            class="bg-green-400 hover:bg-green-500 text-white rounded-full py-1 px-3 flex justify-center items-center"
+            style="background-color: #9c4df4;padding: 5px 10px;color: white;border-radius: 2px;"
             (click)="onSubmit(courseId,assessmentID,userId)"
             >submit</button>
         </div>

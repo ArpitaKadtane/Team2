@@ -2,12 +2,15 @@ import { Component} from '@angular/core';
 import { CourseService } from '../../../services/course.service';
 import { User } from '../../../models/course.model';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../../../candidates/components/header/header.component";
+import { SideMenuComponent } from "../../../../side-menu/side-menu.component";
+import { FooterComponent } from "../../../../candidates/components/footer/footer.component";
 
 @Component({
   selector: 'app-assessment-dash',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, SideMenuComponent, FooterComponent,RouterModule],
   templateUrl: './assessment-dash.component.html',
   styleUrl: './assessment-dash.component.css',
   providers : [CourseService]

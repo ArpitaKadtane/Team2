@@ -1,18 +1,17 @@
 <h2>View Courses</h2>
+
+<!-- Total Courses with Counting Effect -->
+<div class="course-count">
+  <h3>Total Courses: <span id="count">{{ displayCount }}</span></h3>
+</div>
+
+<!-- Filters -->
 <div>
   <label for="filterInstructor">Filter by Instructor:</label>
-  <input
-    id="filterInstructor"
-    [(ngModel)]="filterInstructor"
-    placeholder="Enter instructor name"
-  />
+  <input id="filterInstructor" [(ngModel)]="filterInstructor" placeholder="Enter instructor name" />
 
   <label for="filterTechnology">Filter by Technology:</label>
-  <input
-    id="filterTechnology"
-    [(ngModel)]="filterTechnology"
-    placeholder="Enter technology"
-  />
+  <input id="filterTechnology" [(ngModel)]="filterTechnology" placeholder="Enter technology" />
 
   <label for="filterStatus">Filter by Status:</label>
   <select id="filterStatus" [(ngModel)]="filterStatus">
@@ -23,6 +22,7 @@
   </select>
 </div>
 
+<!-- Courses Table -->
 <table>
   <thead>
     <tr>
@@ -53,64 +53,30 @@
   </tbody>
 </table>
 
+<!-- Edit Course Form -->
 <div *ngIf="selectedCourse" class="edit-form">
   <h3>Edit Course</h3>
-  <form (ngSubmit)="updateCourse()">
-    <label for="name">Course Name:</label>
-    <input
-      id="name"
-      [(ngModel)]="selectedCourse.name"
-      name="name"
-      required
-    />
+  <label>Course Name:</label>
+  <input type="text" [(ngModel)]="selectedCourse.name" />
 
-    <label for="startDate">Start Date:</label>
-    <input
-      type="date"
-      id="startDate"
-      [(ngModel)]="selectedCourse.startDate"
-      name="startDate"
-      required
-    />
+  <label>Start Date:</label>
+  <input type="date" [(ngModel)]="selectedCourse.startDate" />
 
-    <label for="endDate">End Date:</label>
-    <input
-      type="date"
-      id="endDate"
-      [(ngModel)]="selectedCourse.endDate"
-      name="endDate"
-      required
-    />
+  <label>End Date:</label>
+  <input type="date" [(ngModel)]="selectedCourse.endDate" />
 
-    <label for="technology">Technology:</label>
-    <input
-      id="technology"
-      [(ngModel)]="selectedCourse.technology"
-      name="technology"
-      required
-    />
+  <label>Technology:</label>
+  <input type="text" [(ngModel)]="selectedCourse.technology" />
 
-    <label for="status">Status:</label>
-    <select
-      id="status"
-      [(ngModel)]="selectedCourse.status"
-      name="status"
-      required
-    >
-      <option value="Ongoing">Ongoing</option>
-      <option value="Upcoming">Upcoming</option>
-      <option value="Past">Past</option>
-    </select>
+  <label>Instructor:</label>
+  <select [(ngModel)]="selectedCourse.instructorId" (change)="updateSelectedInstructorName()">
+    <option *ngFor="let instructor of instructors" [value]="instructor.id">
+      {{ instructor.fullName }}
+    </option>
+  </select>
 
-    <label for="instructor">Instructor:</label>
-    <input
-      id="instructor"
-      [(ngModel)]="selectedCourse.instructor"
-      name="instructor"
-      required
-    />
+  <p *ngIf="selectedCourse.instructor">Selected Instructor: <strong>{{ selectedCourse.instructor }}</strong></p>
 
-    <button type="submit">Update</button>
-    <button type="button" (click)="cancelEdit()">Cancel</button>
-  </form>
+  <button (click)="updateCourse()">Update</button>
+  <button (click)="cancelEdit()">Cancel</button>
 </div>

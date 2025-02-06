@@ -1,6 +1,6 @@
 .feedback-container {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 20px;
     background: linear-gradient(135deg, #ffffff, #f8f9fa);
     border-radius: 10px;
@@ -57,7 +57,7 @@
   }
   
   .submit-btn {
-    background-color: #007bff;
+    background-color: #9c4df4;
     color: white;
     padding: 12px;
     font-size: 1rem;
@@ -71,7 +71,7 @@
   }
   
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #9437ff;
     transform: scale(1.05);
   }
   .feedback-container {
@@ -106,7 +106,7 @@
   }
   
   .submit-btn {
-    background-color: #007bff;
+    background-color: #9c4df4;
     color: white;
     padding: 10px;
     border: none;
@@ -117,7 +117,7 @@
   }
   
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #9437ff;
   }
   
   .certificate-message {

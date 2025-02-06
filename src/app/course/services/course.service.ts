@@ -8,6 +8,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 })
 export class CourseService {
   private apiUrl = 'http://localhost:3000/courses'; // API endpoint
+  private feedbackApiUrl = 'http://localhost:3000/feedback'; // Feedback endpoint
 
   constructor(private http: HttpClient) {}
 
@@ -40,25 +41,26 @@ export class CourseService {
   }
 
   // Update a specific field of a course (patch)
-  updateCourseField(courseId: string | number, updates: any): Observable<any> {
-    return this.http.patch<any>(`${this.apiUrl}/${courseId}`, updates).pipe(
+  updateCourseField(id: string | number, updates: any): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/${id}`, updates).pipe(
       catchError(this.handleError('updateCourseField'))
     );
   }
 
-// Delete a course
-deleteCourse(id: string | number): Observable<void> {
-  return this.http.delete<void>(`${this.apiUrl}/${id}`)
-}
-
-
+  // Delete a course
+  deleteCourse(id: string | number): Observable<void> {
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
+      map(() => void 0), // Ensure it returns `void`
+      catchError(this.handleError('deleteCourse'))
+    );
+  }
 
   // Enroll a candidate in a course
-  enrollCandidate(courseId: string | number, candidateId: string): Observable<any> {
-    return this.getCourseById(courseId).pipe(
+  enrollCandidate(id: string | number, candidateId: string): Observable<any> {
+    return this.getCourseById(id).pipe(
       switchMap((course) => {
         const updatedCandidates = Array.from(new Set([...(course.enrolledCandidates || []), candidateId]));
-        return this.updateCourseField(courseId, { enrolledCandidates: updatedCandidates });
+        return this.updateCourseField(id, { enrolledCandidates: updatedCandidates });
       }),
       catchError(this.handleError('enrollCandidate'))
     );
@@ -67,24 +69,22 @@ deleteCourse(id: string | number): Observable<void> {
   // Get all courses enrolled by a specific candidate
   getEnrolledCourses(candidateId: string): Observable<any[]> {
     return this.getCourses().pipe(
-      map((courses) =>
-        courses.filter((course) => course.enrolledCandidates?.includes(candidateId))
-      ),
+      map((courses) => courses.filter((course) => course.enrolledCandidates?.includes(candidateId))),
       catchError(this.handleError('getEnrolledCourses', []))
     );
   }
 
   // Check if a candidate is enrolled in a course
-  isCandidateEnrolled(courseId: string | number, candidateId: string): Observable<boolean> {
-    return this.getCourseById(courseId).pipe(
+  isCandidateEnrolled(id: string | number, candidateId: string): Observable<boolean> {
+    return this.getCourseById(id).pipe(
       map((course) => course.enrolledCandidates?.includes(candidateId) || false),
       catchError(() => of(false)) // Return `false` in case of error
     );
   }
 
   // Get the number of enrolled candidates for a course
-  getEnrolledCandidatesCount(courseId: string | number): Observable<number> {
-    return this.getCourseById(courseId).pipe(
+  getEnrolledCandidatesCount(id: string | number): Observable<number> {
+    return this.getCourseById(id).pipe(
       map((course) => course.enrolledCandidates?.length || 0),
       catchError(() => of(0)) // Return `0` in case of error
     );
@@ -99,22 +99,27 @@ deleteCourse(id: string | number): Observable<void> {
   }
 
   // Update modules for a course
-  updateCourseModules(courseId: string | number, modules: any[]): Observable<any> {
-    return this.updateCourseField(courseId, { modules }).pipe(
+  updateCourseModules(id: string | number, modules: any[]): Observable<any> {
+    return this.updateCourseField(id, { modules }).pipe(
       catchError(this.handleError('updateCourseModules'))
     );
   }
-  
+
   // Submit feedback for a course
   submitFeedback(feedback: any): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/feedback', feedback).pipe(
-      catchError((error) => {
-        console.error('submitFeedback failed:', error);
-        return throwError(() => error);
-      })
+    return this.http.post<any>(this.feedbackApiUrl, feedback).pipe(
+      catchError(this.handleError('submitFeedback'))
     );
   }
-  
+
+  // Get the thumbnail URL of a course
+  getCourseThumbnail(id: string | number): Observable<string> {
+    return this.getCourseById(id).pipe(
+      map((course) => course.thumbnail || ''),
+      catchError(() => of(''))
+    );
+  }
+
   // Utility: Handle HTTP errors
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

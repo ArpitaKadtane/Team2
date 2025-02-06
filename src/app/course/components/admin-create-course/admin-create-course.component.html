@@ -1,16 +1,5 @@
 <h1>Create Course</h1>
 <form (ngSubmit)="onSubmit()" #courseForm="ngForm" novalidate>
-  <label for="courseId">Course ID:</label>
-  <input 
-    id="courseId" 
-    [(ngModel)]="course.courseId" 
-    name="courseId" 
-    required 
-    #courseId="ngModel" />
-  <div *ngIf="courseId.invalid && courseId.touched" class="error">
-    Course ID is required.
-  </div>
-
   <label for="name">Course Name:</label>
   <input 
     id="name" 
@@ -69,12 +58,34 @@
     Status is auto-calculated based on dates.
   </div>
 
-  <label for="instructor">Instructor (Optional):</label>
-  <input 
+  <label for="instructor">Instructor:</label>
+  <select 
     id="instructor" 
-    [(ngModel)]="course.instructor" 
-    name="instructor" 
-    placeholder="Assign later" />
+    [(ngModel)]="course.instructorId" 
+    name="instructorId" 
+    required
+    (change)="updateInstructorName()">
+    <option value="" disabled selected>Select an Instructor</option>
+    <option *ngFor="let instructor of instructors" [value]="instructor.id">
+      {{ instructor.fullName }}
+    </option>
+  </select>
+  <div *ngIf="!course.instructorId && courseForm.submitted" class="error">
+    Please select an instructor.
+  </div>
+
+  <p *ngIf="course.instructor">Selected Instructor: <strong>{{ course.instructor }}</strong></p>
+
+  <label for="thumbnail">Thumbnail URL:</label>
+  <input 
+    id="thumbnail" 
+    [(ngModel)]="course.thumbnail" 
+    name="thumbnail" 
+    required 
+    #thumbnail="ngModel" />
+  <div *ngIf="thumbnail.invalid && thumbnail.touched" class="error">
+    Thumbnail URL is required.
+  </div>
 
   <button type="submit" [disabled]="courseForm.invalid">Create Course</button>
 </form>

@@ -9,8 +9,8 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class CourseService {
 
-  private apiUrl = 'http://localhost:3000/course';
-  private apiUrlCandidate = 'http://localhost:3000/Participants';
+  private apiUrl = 'http://localhost:3003/course';
+  private apiUrlCandidate = 'http://localhost:3003/Participants';
 
   constructor(private http: HttpClient) { }
 
@@ -204,6 +204,7 @@ deleteAssessment(courseId: number, assessmentID:string): Observable<any> {
               completionDate : completionDate ,
               assessmentData : assessmentData
             })
+            console.log(course)
             return course; 
           } else {
             throw new Error('Assessment not found');
@@ -213,9 +214,7 @@ deleteAssessment(courseId: number, assessmentID:string): Observable<any> {
         }
       }),
       switchMap((course) => {
-        return this.http.patch<any>(`${this.apiUrl}/${course.id}`, course, {
-          headers: { 'Content-Type': 'application/json' }
-        });
+        return this.http.put<any>(`${this.apiUrl}/${course.id}`, course);
       })
     );
 
@@ -240,9 +239,7 @@ deleteAssessment(courseId: number, assessmentID:string): Observable<any> {
         }
       }),
       switchMap((user)=>{
-        return this.http.patch<any>(`${this.apiUrlCandidate}/${user.id}`, user, {
-          headers: { 'Content-Type': 'application/json' }
-        });
+        return this.http.put<any>(`${this.apiUrlCandidate}/${user.id}`, user);
       })
     )
 

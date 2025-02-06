@@ -30,44 +30,45 @@ instructor: any;
   constructor(private courseService: CourseService, private router: Router,private http: HttpClient) {}
 
   ngOnInit() {
-
     const candidateEmail = localStorage.getItem('candidateEmail');
-    const coursesUrl = 'http://localhost:3001/courses';
-    const feedbackUrl = 'http://localhost:3001/feedback';
-
+    const coursesUrl = 'http://localhost:3000/courses';
+    const feedbackUrl = 'http://localhost:3000/feedbacks';
+  
+    // Fetch courses first
     this.http.get<any[]>(coursesUrl).subscribe((courses) => {
+      this.courses = courses; // Store courses initially
+  
+      // Fetch feedback separately
       this.http.get<any[]>(feedbackUrl).subscribe((feedback) => {
-        this.courses = courses.map(course => {
+        // Map feedbacks to their respective courses
+        this.courses.forEach(course => {
           const courseFeedback = feedback.filter(f => f.courseId === course.id);
-          const avgRating = this.calculateAverageRating(courseFeedback);
-
-          return {
-            ...course,
-            feedback: courseFeedback,
-            avgRating: avgRating
-          };
+          course.feedback = courseFeedback;
+          course.avgRating = this.calculateAverageRating(courseFeedback);
         });
-
-        this.filteredCourses = this.courses;
-        console.log(this.filteredCourses)
-
-        const uniqueCategories = Array.from(new Set(courses.map(course => course.technology)));
+  
+        this.filteredCourses = [...this.courses];
+  
+        const uniqueCategories = Array.from(new Set(this.courses.map(course => course.technology)));
         this.categories = ['All', ...uniqueCategories];
-
+  
         if (candidateEmail) {
           this.courses.forEach(course => {
-            course.isEnrolled = course.enrolledCandidates.includes(candidateEmail);
+            course.isEnrolled = course.enrolledCandidates?.includes(candidateEmail) || false;
           });
         }
+  
+        console.log(this.filteredCourses);
       });
     });
   }
-
-    calculateAverageRating(feedback: any[]): number {
-      if (feedback.length === 0) return 0;
-      const totalRating = feedback.reduce((sum, current) => sum + current.courseRating, 0);
-      return totalRating / feedback.length;
-    }
+  
+  calculateAverageRating(feedback: any[]): number {
+    if (feedback.length === 0) return 0;
+    const totalRating = feedback.reduce((sum, current) => sum + current.courseRating, 0);
+    return parseFloat((totalRating / feedback.length).toFixed(2));
+  }
+  
 
   enroll(course: any) {
     const candidateEmail = localStorage.getItem('candidateEmail');
@@ -178,8 +179,7 @@ applyFilters() {
 
   if (this.searchQuery) {
     filtered = filtered.filter((course) =>
-      course.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-      course.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+      course.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
@@ -240,6 +240,6 @@ toggleRatingFilter(rating: string) {
 
   isAlreadyEnrolled(course: any): boolean {
     const candidateEmail = localStorage.getItem('candidateEmail');
-    return course.enrolledCandidates.includes(candidateEmail || '');
+    return course.enrolledCandidates.includes(candidateEmail);
   }
 }

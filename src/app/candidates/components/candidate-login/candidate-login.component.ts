@@ -24,9 +24,6 @@ export class CandidateLoginComponent implements OnInit{
     private router: Router
   ) {}
   ngOnInit() {
-    // if (localStorage.getItem('candidateEmail')) {
-    //   this.router.navigate(['candidate/dashboard'])
-    // }
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -51,7 +48,7 @@ export class CandidateLoginComponent implements OnInit{
       next: (response) => {
         if (response.length > 0) {
           const user = response[0];
-          this.successMessage = '200 (OK) Login successful!!!';
+          this.successMessage = 'Login successful!!!';
           alert(this.successMessage);
           localStorage.setItem('loggedIn', 'true');
           localStorage.setItem('candidateName', user.fullName);

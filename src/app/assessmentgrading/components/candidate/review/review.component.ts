@@ -2,10 +2,13 @@ import { Component , OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../../../../candidates/components/footer/footer.component";
+import { SideMenuComponent } from "../../../../side-menu/side-menu.component";
+import { HeaderComponent } from "../../../../candidates/components/header/header.component";
 @Component({
   selector: 'app-review',
   standalone: true,
-  imports: [CommonModule , FormsModule],
+  imports: [CommonModule, FormsModule, FooterComponent, SideMenuComponent, HeaderComponent],
   templateUrl: './review.component.html',
   styleUrl: './review.component.css'
 })
@@ -18,9 +21,14 @@ export class ReviewComponent implements OnInit{
       this.courseName =history.state.courseName ;
   }
 
+isMenuVisible: boolean = false;
+
+onMenuToggle() {
+  this.isMenuVisible = !this.isMenuVisible;
+}
   constructor( private router: Router){}
 
   completeReview(){
-    this.router.navigate(['/assessmentdash'])
+    this.router.navigate(['/candidate/assessmentdash'])
   }
 }

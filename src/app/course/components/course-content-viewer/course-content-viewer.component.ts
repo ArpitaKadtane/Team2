@@ -54,7 +54,12 @@ export class CourseContentViewerComponent implements OnInit {
       this.updateContentUrls();
     } else if (this.progress === 100) {
       this.showCompletionPopup = true;
+      // this.router.navigate(['/assessmentdash'])
     }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   previousModule(): void {
@@ -74,7 +79,7 @@ export class CourseContentViewerComponent implements OnInit {
     const completedModules = this.course.modules.filter(
       (module: any) => module.completed
     ).length;
-    this.progress = (completedModules / this.course.modules.length) * 100;
+    this.progress = Math.round((completedModules / this.course.modules.length) * 100);
 
     if (this.progress === 100) {
       this.showCompletionPopup = true;
@@ -109,7 +114,7 @@ export class CourseContentViewerComponent implements OnInit {
   }
 
   navigateToAssessment(): void {
-    this.router.navigate(['/assessmentdash']);
+    this.router.navigate(['/candidate/assessmentdash']);
   }
 
   closePopup(): void {

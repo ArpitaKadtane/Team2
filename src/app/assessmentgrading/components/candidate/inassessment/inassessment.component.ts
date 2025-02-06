@@ -103,6 +103,7 @@ export class InassessmentComponent implements CanComponentDeactivate ,OnInit {
           });
         },
         (error)=>{
+          console.log(error)
           alert("Oops! Error in saving assessment");
         }
       )

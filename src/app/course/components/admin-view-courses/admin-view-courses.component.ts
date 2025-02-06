@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../services/course.service';
+import { InstructorService } from '../../../instructor/services/instructor.service';
 
 @Component({
   selector: 'app-admin-view-courses',
@@ -12,18 +13,22 @@ import { CourseService } from '../../services/course.service';
 })
 export class AdminViewCoursesComponent implements OnInit {
   courses: any[] = [];
+  instructors: any[] = []; // Store instructors list
   filterInstructor: string = '';
   filterTechnology: string = '';
   filterStatus: string = '';
   selectedCourse: any = null;
 
-  constructor(private courseService: CourseService) {}
+  totalCourses: number = 0;
+  displayCount: number = 0;
+
+  constructor(private courseService: CourseService, private instructorService: InstructorService) {}
 
   ngOnInit() {
     this.loadCourses();
+    this.fetchInstructors();
   }
 
-  // Load and update statuses dynamically
   loadCourses() {
     this.courseService.getCourses().subscribe((data: any[]) => {
       const currentDate = new Date();
@@ -41,10 +46,35 @@ export class AdminViewCoursesComponent implements OnInit {
 
         return course;
       });
+
+      this.totalCourses = this.courses.length;
+      this.animateCount();
     });
   }
 
-  // Filter courses based on user inputs
+  fetchInstructors() {
+    this.instructorService.getInstructor().subscribe(
+      (data) => {
+        this.instructors = data;
+      },
+      (error) => {
+        console.error('Error fetching instructors:', error);
+      }
+    );
+  }
+
+  animateCount() {
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count < this.totalCourses) {
+        count++;
+        this.displayCount = count;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+  }
+
   filteredCourses() {
     return this.courses.filter((course) => {
       const matchesInstructor = this.filterInstructor
@@ -63,14 +93,29 @@ export class AdminViewCoursesComponent implements OnInit {
     });
   }
 
-  // Edit course
   editCourse(course: any) {
-    this.selectedCourse = { ...course };
+    this.selectedCourse = JSON.parse(JSON.stringify(course));
   }
 
-  // Update course and reload
+  updateSelectedInstructorName() {
+    const selectedInstructor = this.instructors.find(inst => inst.id === this.selectedCourse.instructorId);
+    this.selectedCourse.instructor = selectedInstructor ? selectedInstructor.fullName : '';
+  }
+
   updateCourse() {
     if (this.selectedCourse) {
+      const currentDate = new Date();
+      const startDate = new Date(this.selectedCourse.startDate);
+      const endDate = new Date(this.selectedCourse.endDate);
+
+      if (currentDate < startDate) {
+        this.selectedCourse.status = 'Upcoming';
+      } else if (currentDate >= startDate && currentDate <= endDate) {
+        this.selectedCourse.status = 'Ongoing';
+      } else {
+        this.selectedCourse.status = 'Past';
+      }
+
       this.courseService.updateCourse(this.selectedCourse).subscribe(() => {
         this.loadCourses();
         this.selectedCourse = null;
@@ -78,19 +123,16 @@ export class AdminViewCoursesComponent implements OnInit {
     }
   }
 
-  // Cancel editing
   cancelEdit() {
     this.selectedCourse = null;
   }
 
-  // Confirm and delete course
   confirmDelete(course: any) {
     if (confirm(`Are you sure you want to delete the course: ${course.name}?`)) {
       this.deleteCourse(course);
     }
   }
 
-  // Delete course
   deleteCourse(course: any) {
     this.courseService.deleteCourse(course.id).subscribe(() => {
       this.loadCourses();

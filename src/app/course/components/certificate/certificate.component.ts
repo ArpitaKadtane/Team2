@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -13,19 +13,22 @@ export class CertificateComponent implements OnInit {
   courseId: string = '';
   courseName: string = '';
   fullName: string = '';
+  instructor: string = '';
   currentDate: string = new Date().toLocaleDateString();
-  loggedInUserEmail: string = 'bhanusingh09@gmail.com'; // Get this from authentication service
+  loggedInUserEmail: string = localStorage.getItem('candidateEmail') || '';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.courseId = this.route.snapshot.paramMap.get('courseId') || '';
 
     // Fetch logged-in user details
-    this.http.get<any[]>('http://localhost:3000/candidates').subscribe(users => {
+    this.http.get<any[]>('http://localhost:3001/candidates').subscribe(users => {
       const user = users.find(u => u.email === this.loggedInUserEmail);
       if (user) {
         this.fullName = user.fullName;
+      } else {
+        console.error('Logged-in candidate not found.');
       }
     });
 
@@ -34,6 +37,7 @@ export class CertificateComponent implements OnInit {
       const course = courses.find(c => c.id === this.courseId);
       if (course) {
         this.courseName = course.name;
+        this.instructor = course.instructor; 
       }
     });
   }
@@ -75,5 +79,17 @@ export class CertificateComponent implements OnInit {
       // Show buttons again
       if (buttons) buttons.style.display = 'flex';
     });
+  }
+
+  home() {
+    this.router.navigate(['/candidate']);
+  }
+
+  feedback() {
+    this.router.navigate(['/feedback/5692']);
+  }
+
+  certificate() {
+    this.router.navigate(['/certificate/5692']);
   }
 }

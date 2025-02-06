@@ -9,10 +9,10 @@
       <img [src]="course.thumbnail" [alt]="course.name" class="course-image" />
       <h3>{{ course.name }}</h3>
       <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-      <p>
+      <!-- <p>
         <strong>Duration:</strong>
         {{ calculateDuration(course.startDate, course.endDate) }}
-      </p>
+      </p> -->
       <!-- Remove button -->
       <button class="remove-button" (click)="removeBookmark(course.id)">
         Remove

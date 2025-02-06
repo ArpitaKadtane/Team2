@@ -1,5 +1,5 @@
 <div class="feedback-container">
-  <h2>Provide Feedback to Get Your Certificate</h2>
+  <h2>Provide Feedback</h2>
 
   <div class="feedback-section">
     <label for="course-rating">Course Rating</label>
@@ -31,7 +31,7 @@
   <button class="submit-btn" (click)="submitFeedback()">Submit Feedback</button>
 
   <!-- Certificate Link Popup -->
-  <div *ngIf="certificateGenerated" class="certificate-popup">
+  <!-- <div *ngIf="certificateGenerated" class="certificate-popup">
     <p>Certificate generated successfully! <a [routerLink]="['/certificate', courseId]" class="certificate-link">Click here to view and download</a></p>
-  </div>
+  </div> -->
 </div>

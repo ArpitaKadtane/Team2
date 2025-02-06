@@ -1,11 +1,14 @@
 import { Component , OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { FooterComponent } from "../../../../candidates/components/footer/footer.component";
+import { SideMenuComponent } from "../../../../side-menu/side-menu.component";
+import { HeaderComponent } from "../../../../candidates/components/header/header.component";
 
 @Component({
   selector: 'app-report',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FooterComponent, SideMenuComponent, HeaderComponent,RouterModule],
   templateUrl: './report.component.html',
   styleUrl: './report.component.css'
 })
@@ -17,6 +20,12 @@ export class ReportComponent implements OnInit{
   timeTaken : any | undefined ;
   answeredQuestions : number | undefined ;
   marksInPercentage : number | undefined ;
+
+isMenuVisible: boolean = false;
+
+onMenuToggle() {
+  this.isMenuVisible = !this.isMenuVisible;
+}
 
   ngOnInit():void{
     this.userName = history.state.userName ;
@@ -49,5 +58,15 @@ export class ReportComponent implements OnInit{
         courseName : this.courseName
       }
     })
+  }
+
+  home(){
+    this.router.navigate(['/candidate'])
+  }
+  feedback(){
+    this.router.navigate(['/feedback/5a20'])
+  }
+  certificate(){
+    this.router.navigate(['/certificate/5a20'])
   }
 }

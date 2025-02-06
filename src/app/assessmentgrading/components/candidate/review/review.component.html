@@ -1,3 +1,13 @@
+<div class="layout">
+    <app-header [isMenuOpen]="isMenuVisible" (menuToggle)="onMenuToggle()"></app-header>
+
+  <div class="body">
+    <aside *ngIf="isMenuVisible" class="side-menu">
+      <app-side-menu [isVisible]="isMenuVisible"></app-side-menu>
+    </aside>
+
+    <main class="content">
+      
 <div>
     <div class="child w-full">
         <div class="flex items-center justify-center text-lg py-3 font-medium border-b-2">
@@ -34,7 +44,7 @@
         <div
         class="w-full flex justify-center">
             <button
-            class=" text-white py-1 hover:bg-blue-500 bg-blue-400 rounded-lg px-2"
+            style="background-color: #9c4df4;padding: 5px 10px;color: white;border-radius: 2px;"
             (click)="completeReview()"
             >
                 complete review
@@ -43,4 +53,8 @@
     </div>
     
 
+</div>
+    </main>
+  </div>
+  <app-footer></app-footer>
 </div>
